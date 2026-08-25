@@ -159,4 +159,4 @@ const interviewReportSchema = new mongoose.Schema({
 
 const interviewReportModel = new mongoose.model("interviewReport", interviewReportSchema)
 
-module.exports = interviewReportModel
+module.exports = interviewReportModel 
