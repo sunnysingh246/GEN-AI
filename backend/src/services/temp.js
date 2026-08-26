@@ -25,7 +25,7 @@ Projects:
 - Task Management App
 `;
 
-const selfDescription = `
+const selfdescribe = `
 I am a passionate software engineer with experience in building
 modern web applications and backend services. I enjoy solving
 complex problems, learning new technologies, and writing clean,
@@ -37,7 +37,7 @@ I can contribute to meaningful projects and continue growing as a
 software developer.
 `;
 
-const jobDescription = `
+const jobdescribe = `
 We are looking for a Software Engineer to join our development team.
 
 Responsibilities:
@@ -59,5 +59,5 @@ Requirements:
 
 
 module.exports = {
-    resume, selfDescription, jobDescription
+    resume, selfdescribe, jobdescribe
 }

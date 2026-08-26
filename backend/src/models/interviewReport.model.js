@@ -1,4 +1,4 @@
-import mongoose from 'mongoose'
+const mongoose = require('mongoose')
 
 /**
  * -job description schema:string
@@ -54,7 +54,7 @@ const technicalQuestionSchema = new mongoose.Schema({
     },
 
     answer: {
-        type: string,
+        type: String,
         required: [true, "ANswer is required"]
     }
 
@@ -63,7 +63,7 @@ const technicalQuestionSchema = new mongoose.Schema({
 })
 
 
-const BehaviouraQuestionSchema = new mongoose.Schema({
+const behavioralQuestionSchema = new mongoose.Schema({
     question: {
         type: String,
         required: true
@@ -75,7 +75,7 @@ const BehaviouraQuestionSchema = new mongoose.Schema({
     },
 
     answer: {
-        type: string,
+        type: String,
         required: [true, "ANswer is required"]
     }
 
@@ -84,7 +84,7 @@ const BehaviouraQuestionSchema = new mongoose.Schema({
 })
 
 
-const skillGapSChema = new mongoose.Schema({
+const skillGapSchema = new mongoose.Schema({
     question: {
         type: String,
         required: true
@@ -96,7 +96,7 @@ const skillGapSChema = new mongoose.Schema({
     },
 
     answer: {
-        type: string,
+        type: String,
         required: [true, "ANswer is required"]
     }
 
@@ -117,22 +117,17 @@ const preparationPlanSchema = new mongoose.Schema({
         required: [true, "Focus is required"]
     },
 
-    taska: [{
+    tasks: [{
         type: String,
         required: [true, "task is required"]
     }],
-
-    technicalQuestion: [technicalQuestionSchema],
-    BehaviouraQuestion: [BehaviouraQuestionSchema],
-    skillGap: [skillGapSChema],
-    preparationPlan: [preparationPlanSchema]
 })
 
 
 
 const interviewReportSchema = new mongoose.Schema({
 
-    jobDescription: {
+    jobDescribe: {
         type: String,
         required: [true, "Job description is required"]
     },
@@ -141,7 +136,7 @@ const interviewReportSchema = new mongoose.Schema({
         type: String
     },
 
-    selfDescription: {
+    selfdescribe: {
         type: String
     },
 
@@ -150,12 +145,20 @@ const interviewReportSchema = new mongoose.Schema({
         min: 0,
         max: 100
     },
-
-    technicalQuestion: []
+    technicalQuestions: [technicalQuestionSchema],
+    behavioralQuestions: [behavioralQuestionSchema],
+    skillGaps: [skillGapSchema],
+    preparationPlan: [preparationPlanSchema],
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "users"
+    }, title: {
+        type: String,
+        required: [true, "Job title is required"]
+    }
 }, {
     timestamps: true
 })
-
 
 const interviewReportModel = new mongoose.model("interviewReport", interviewReportSchema)
 
